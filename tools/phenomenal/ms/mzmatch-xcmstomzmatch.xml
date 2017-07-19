@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--Proposed Tool Section: [Utilities]-->
+<tool id="xcmstomzmatch" name="mzmatch-xcmstomzmatch" version="1.1">
+<!--
+  <requirements>
+    <container type="docker">phnmnl/xcms</container>
+  </requirements>
+-->
+  <description>Convert XCMS to PeakML</description>
+  <command><![CDATA[
+/usr/local/bin/xcmstomzmatch.r input=$infile output=$outfile
+  ]]></command>
+  <inputs>
+    <param name="infile" type="data" format="rdata" value="" optional="False" multiple="True" label="Input rdata containing xcmsSet file." />
+  </inputs>
+  <outputs>
+    <data name="outfile" format="xml"/>
+  </outputs>
+  <help>Set phenotype of xcmsSet.</help>
+</tool>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--Proposed Tool Section: [Utilities]-->
+<tool id="mzmatchcombine" name="mzmatch-combine" version="1.1">
+<!--
+  <requirements>
+    <container type="docker">phnmnl/xcms</container>
+  </requirements>
+-->
+  <description>Combine xcms sets</description>
+  <command><![CDATA[
+/usr/local/bin/mzmatchcombine.r input=$infile ppm=$ppmin mz=$mzin output=$outfile
+  ]]></command>
+  <inputs>
+<param name="infile" type="data" format="xml" multiple="True" optional="False" label="Input RData file" />
+    <param name="mzin" type="text" value="10"  label="mz" help="" />
+    <param name="ppmin" type="text" value="10"  label="ppm" help="" />
+  </inputs>
+  <outputs>
+    <data name="outfile" format="xml"/>
+  </outputs>
+  <help>Combine xcms sets</help>
+</tool>

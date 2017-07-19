@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--Proposed Tool Section: [Utilities]-->
+<tool id="aggregatemetfrag" name="msnbase-aggregatemetfrag" version="1.1">
+<!--
+  <requirements>
+    <container type="docker">phnmnl/xcms</container>
+  </requirements>
+-->
+  <description>Aggregate results from MetFrag</description>
+  <command><![CDATA[
+/usr/local/bin/aggregateMetfrag.r 
+inputs=' 
+  #for $txt2 in $infile: 
+$txt2,
+#end for
+' 
+
+realNames=' 
+  #for $txt in $infile: 
+${txt.name},
+#end for
+'
+ output=$outfile;
+  ]]></command>
+  <inputs>
+    <param name="infile" type="data" format="csv" value="" optional="False" multiple="True" label="Input mzML file." />
+  </inputs>
+  <outputs>
+    <data name="outfile" format="csv"/>
+  </outputs>
+  <help>Aggregates results from MetFrag.</help>
+</tool>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--Proposed Tool Section: [File Handling]-->
+<tool id="nmrmlconv" name="nmrmlconv" version="0.2">
+  <requirements>
+    <container type="docker">container-registry.phenomenal-h2020.eu/phnmnl/nmrmlconv</container>
+  </requirements>
+  <description>Converts vendor RAW NMR to nmrML.</description>
+  <command><![CDATA[
+    echo $infile;
+    ls -al $infile;
+    mkdir -p \$PWD/tmp;
+    unzip -q -d \$PWD/tmp $infile;
+    ls -al \$PWD/tmp;
+    export samplename="ADG10003u_007";
+    java -jar /usr/local/share/nmrML/converter.jar -l create -b -z -t $venformat -a \$samplename -i \$PWD/tmp -o $outfile;
+  ]]>
+  </command>
+  <inputs>
+    <param name="infile" type="data" format="zip" optional="False" label="Input file in zip format to convert" />
+    <param name="venformat" type="select" value="Bruker" optional="True" label="Vendor format" help="See below.">
+      <option value="bruker" selected="True">Bruker</option>
+      <option value="varian">Varian</option>
+      <option value="jeol">Jeol</option>
+      <option value="tecmag">TecMag</option>
+      <option value="nmrstar">NMR Star</option>
+      <option value="chemmagnetics">ChemMagnetics</option>
+      <option value="geomega">GE Omega</option>
+      <option value="galactic">Galactic</option>
+      <option value="jcamp">JCAMP</option>
+      <option value="lybrics">Lybrics</option>
+      <option value="nuts">Nuts</option>
+      <option value="nicolet">Nicolet</option>
+      <option value="netcdf">netCDF</option>
+    </param>
+  </inputs>
+  <outputs>
+    <data name="outfile" type="data" format="nmrML" label="nmrML file" />
+  </outputs>
+  <help>
+nmrML is an open mark-up language for NMR data. This tool converts RAW vendor NMR data to nmrML format.
+  </help>
+</tool>

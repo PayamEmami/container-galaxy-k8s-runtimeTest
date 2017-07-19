@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--Proposed Tool Section: [Utilities]-->
+<tool id="passatutto" name="msnbase-passatuttoPEP" version="1.1">
+<!--
+  <requirements>
+    <container type="docker">phnmnl/xcms</container>
+  </requirements>
+-->
+  <description>Convert Metfrag scores to PEP</description>
+  <command><![CDATA[
+/usr/local/bin/metfragPEP.r input=$infile score=$scorein output=$outfile;
+
+  ]]></command>
+  <inputs>
+    <param name="infile" type="data" format="txt" value="" optional="False" label="Input MetFrag results." />
+	<param name="scorein" type="text" value="FragmenterScore" optional="False" label="Name of score columns to use" help="" />
+  </inputs>
+  <outputs>
+    <data name="outfile" format="txt"/>
+  </outputs>
+  <help>Convert Metfrag scores to PEP</help>
+</tool>

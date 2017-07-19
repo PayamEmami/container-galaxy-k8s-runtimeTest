@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--Proposed Tool Section: [Utilities]-->
+<tool id="filenameextractor" name="utility-filenameextractor" version="1.1">
+<!--
+  <requirements>
+    <container type="docker">phnmnl/xcms</container>
+  </requirements>
+-->
+  <description>Extract the real name of the file(s) from galaxy file names.</description>
+  <command><![CDATA[
+/usr/local/bin/filenameextractor.r 
+galaxyNames=' 
+  #for $zip2 in $infile: 
+$zip2,
+#end for
+' 
+
+realNames=' 
+  #for $zip in $infile: 
+${zip.name},
+#end for
+'
+ output=$outfile cleanFileName=$cleanFileNameOption appendTo=$infilecvs appendToName=$appendToNameParm;
+  ]]></command>
+  <inputs>
+    <param name="infile" type="data" format="mzml" value="" optional="False" multiple="True" label="Input mzML file." />
+	    <param name="cleanFileNameOption" type="select" value="1" optional="False" label="Clean galaxy names and only leave the sample part.">
+      <option value="F" selected="False">No</option>
+      <option value="T" selected="True">Yes</option>
+    </param>
+    <param name="infilecvs" type="data" format="csv" value="" optional="True" multiple="True" label="Input CSV file." />
+    <param name="appendToNameParm" type="text" value="realNames" optional="True" label="Column showing the real name of the files"/>
+  </inputs>
+  <outputs>
+    <data name="outfile" format="csv"/>
+  </outputs>
+  <help>Extract the real name of the file(s) from galaxy file names.</help>
+</tool>
