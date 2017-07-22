@@ -8,16 +8,33 @@
 -->
   <description>Set phenotype of xcmsSet.</description>
   <command><![CDATA[
-/usr/local/bin/setphenotype.r input=$infile inputCSV=$infilecvs phenoDataColumn=$phenocol output=$outfile inputraw=$rawfiles
+/usr/local/bin/setphenotype.r galaxyNames=' 
+  #for $zip2 in $rawfiles: 
+$zip2,
+#end for
+' 
+
+realNames=' 
+  #for $zip in $rawfiles: 
+${zip.name},
+#end for
+'
+ outputcsv=$outfilecsvin cleanFileName=$cleanFileNameOption appendTo=$infilecvs appendToName=$appendToNameParm input=$infile phenoDataColumn=$phenocol output=$outfile inputraw=$rawfiles;
   ]]></command>
   <inputs>
-    <param name="infile" type="data" format="rdata" value="" optional="False" multiple="True" label="Input rdata containing xcmsSet file." />
+    <param name="infile" type="data" format="rdata" value="" optional="False" multiple="True" label="Input rdata containing xcmsSet" />
 	<param name="rawfiles" type="data" format="mzml" multiple="True" optional="False" label="Input mzML raw files" />
-    <param name="infilecvs" type="data" format="csv" value="" optional="True" multiple="True" label="Input CSV file." />
+    <param name="infilecvs" type="data" format="csv" value="" optional="True" multiple="True" label="Input CSV file" />
     <param name="phenocol" type="text" value="class" optional="True" label="Column showing the group of the files"/>
+	    <param name="cleanFileNameOption" type="select" value="1" optional="False" label="Clean galaxy names and only leave the sample part">
+      <option value="F" selected="False">No</option>
+      <option value="T" selected="True">Yes</option>
+    </param>
+    <param name="appendToNameParm" type="text" value="realNames" optional="True" label="Column showing the real name of the files"/>
   </inputs>
   <outputs>
     <data name="outfile" format="rdata"/>
+<data name="outfilecsvin" format="csv"/>
   </outputs>
   <help>Set phenotype of xcmsSet.</help>
 </tool>
