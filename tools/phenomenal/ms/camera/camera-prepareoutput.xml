@@ -4,7 +4,7 @@
 <tool id="camera-prepareoutput" name="camera-prepareoutput" version="0.1">
   <description>Prepare output for doing multi/uni variate</description>
   <command><![CDATA[
-	/usr/local/bin/prepareOutput.r inputcamera=$inputcamerain inputscores=$inputscoresin inputpheno=$inputphenoin ppm=$ppmin rt=$rtin higherTheBetter=$higherTheBetterin scoreColumn=$scoretypein impute=$imputein typeColumn=$columntypein selectedType=$selectedTypein rename=$renamein renameCol=$renameColin onlyReportWithID=$onlyReportWithIDin combineReplicate=$combineReplicatein combineReplicateColumn=$combineReplicateColumnin outputPeakTable=$outputPeakTableOut outputVariables=$outputVariablesOut outputMetaData=$outputMetaDataOut;
+	/usr/local/bin/prepareOutput.r inputcamera=$inputcamerain inputscores=$inputscoresin inputpheno=$inputphenoin ppm=$ppmin rt=$rtin higherTheBetter=$higherTheBetterin scoreColumn=$scoretypein impute=$imputein typeColumn=$columntypein selectedType=$selectedTypein rename=$renamein renameCol=$renameColin onlyReportWithID=$onlyReportWithIDin combineReplicate=$combineReplicatein combineReplicateColumn=$combineReplicateColumnin outputPeakTable=$outputPeakTableOut outputVariables=$outputVariablesOut outputMetaData=$outputMetaDataOut log=$login;
   ]]>
   </command>
   <inputs>
@@ -23,6 +23,10 @@
 	  <option value="FragmenterScore" selected="False">Fragmenter Score</option>
     </param>
     <param name="imputein" type="select" value="false" label="Do you want to impute IDs within pc groups ?" help="">
+      <option value="true" selected="False">Yes</option>
+      <option value="false" selected="True">No</option>
+    </param>
+    <param name="login" type="select" value="false" label="Do you want to perform log2 transformation ?" help="">
       <option value="true" selected="False">Yes</option>
       <option value="false" selected="True">No</option>
     </param>
