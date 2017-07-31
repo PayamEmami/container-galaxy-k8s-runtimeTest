@@ -11,7 +11,7 @@
 /usr/local/bin/xcmstomzmatch.r input=$infile output=$outfile
   ]]></command>
   <inputs>
-    <param name="infile" type="data" format="rdata" value="" optional="False" multiple="True" label="Input rdata containing xcmsSet file." />
+    <param name="infile" type="data" format="rdata" value="" optional="False" label="PeakML files containing xcmsSet file." />
   </inputs>
   <outputs>
     <data name="outfile" format="xml"/>
