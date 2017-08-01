@@ -2,11 +2,9 @@
 <!--This is a configuration file for the integration of a tools into Galaxy (https://galaxyproject.org/).-->
 <!--Proposed Tool Section: [PhenoMeNal]-->
 <tool id="xcms-blankfilter" name="xcms-blankfilter" version="0.1">
-  <description>Filters out the peaks that have higher intensities in blank samples compare to selected samples (rest).</description>
+  <description>Filters out the peaks that have higher intensities in blank samples compare to selected samples.</description>
   <command><![CDATA[
 	/usr/local/bin/blankfilter.r input=$xcmsset output=$outputin method=$methodin blank=$blankin sample=$samplein rest=$restin;
-
-
   ]]>
   </command>
   <inputs>
@@ -15,6 +13,7 @@
     <param name="restin" type="select" value="1" label="Compare to rest of the samples." help="">
       <option value="T" selected="True">Yes</option>
       <option value="F" selected="False">No</option>
+ </param>
    <param name="samplein" type="text" value="sample" optional="False" label="Class of the real biological samples" help="" />
     <param name="methodin" type="select" value="1" label="Which method to use for comparing blank vs. samples " help="">
       <option value="max" selected="True">Max</option>
