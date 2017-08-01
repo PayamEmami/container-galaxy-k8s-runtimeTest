@@ -12,13 +12,13 @@
   <inputs>
     <param name="xcmsset" type="data" format="rdata" optional="False" label="Input RData file" />
    <param name="blankin" type="text" value="blank" optional="False" label="Class of the blank samples" help="" />
-    <param name="restin" type="select" value="1" label="Compare to rest of the samples (if set, sample will be ignored)." help="">
+    <param name="restin" type="select" value="1" label="Compare to rest of the samples." help="">
       <option value="T" selected="True">Yes</option>
       <option value="F" selected="False">No</option>
    <param name="samplein" type="text" value="sample" optional="False" label="Class of the real biological samples" help="" />
     <param name="methodin" type="select" value="1" label="Which method to use for comparing blank vs. samples " help="">
-     <option value="max" selected="True">Max</option>
- <option value="mean" selected="False">Mean</option>
+      <option value="max" selected="True">Max</option>
+      <option value="mean" selected="False">Mean</option>
       <option value="median" selected="False">Median</option>
     </param>
   </inputs>
