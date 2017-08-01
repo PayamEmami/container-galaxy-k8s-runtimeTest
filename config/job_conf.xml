@@ -371,6 +371,8 @@
         <tool id="xcms-group-peaks" destination="xcms-container" />
         <tool id="xcms-correct-rt" destination="xcms-container" />
         <tool id="xcms-fill-peaks" destination="xcms-container" />
+<tool id="xcms-dilutionfilter" destination="xcms-container" />
+<tool id="xcms-blankfilter" destination="xcms-container" />
 	<!-- CAMERA -->
 	<tool id="consensusXMLToXcms" destination="camera-container" />
         <tool id="cameraToFeatureXML" destination="camera-container" />
