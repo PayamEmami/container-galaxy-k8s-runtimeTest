@@ -4,7 +4,7 @@
 <tool id="msms2metfrag-zip" name="msms2metfrag-zip" version="0.2">
   <description>Generate MetFrag parameters given MS/MS spectral information and CAMERA adduct annotation.</description>
   <command><![CDATA[
-	/usr/local/bin/MS2ToMetFragZip.r inputCAMERA=$msms2metfrag_input_2 inputMS2=$msms2metfrag_input_1 output=outputfile precursorppm=$precursorppm fragmentppm=$fragmentppm fragmentabs=$fragmentabs database=$database maxSpectra=$maxSpectra minPeaks=$minPeaks maxPrecursorMass=$maxPrecursorMass minPrecursorMass=$minPrecursorMass mode=$mode adductRules=$adductRules;
+	/usr/local/bin/MS2ToMetFragZip.r inputCAMERA=$msms2metfrag_input_2 inputMS2=$msms2metfrag_input_1 output=$outputfile precursorppm=$precursorppm fragmentppm=$fragmentppm fragmentabs=$fragmentabs database=$database maxSpectra=$maxSpectra minPeaks=$minPeaks maxPrecursorMass=$maxPrecursorMass minPrecursorMass=$minPrecursorMass mode=$mode adductRules=$adductRules;
   ]]>
   </command>
   <inputs>
