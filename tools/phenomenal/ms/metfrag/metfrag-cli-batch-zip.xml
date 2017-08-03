@@ -16,7 +16,7 @@
     <param name="metfrag_cli_batch_database_file" type="data" format="csv" optional="True" label="Database File" help="File containing candidates used as database" />
   </inputs>
   <outputs>
-    <data name="metfrag_cli_batch_output_1" type="text" format="csv" label="MetFrag result file" />
+    <data name="metfrag_cli_batch_output_1" type="text" format="zip" label="MetFrag result file" />
   </outputs>
   <help>
 

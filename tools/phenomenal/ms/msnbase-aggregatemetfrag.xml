@@ -31,12 +31,12 @@ ${txt.name},
   <inputs>
     <param name="infile" type="data" format="csv,zip" value="" optional="False" multiple="True" label="Input metfrag results file." />
    <param name="param_in_type" display="radio" type="select" optional="False" label="Input file type" help="">
-      <option value="csv">mzML</option>
-      <option value="zip">featureXML</option>
+      <option value="csv">csv</option>
+      <option value="zip">zip</option>
     </param>
   </inputs>
   <outputs>
     <data name="outfile" format="csv"/>
   </outputs>
   <help>Aggregates results from MetFrag.</help>
-</tool>$infiles.name
+</tool>
