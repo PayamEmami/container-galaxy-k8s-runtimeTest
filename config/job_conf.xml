@@ -223,6 +223,14 @@
     	    <param id="max_pod_retrials">3</param>
     	    <param id="docker_enabled">true</param>
 	</destination>
+	<destination id="metfrag-cli-batch-container2" runner="k8s">
+    	    <param id="docker_repo_override">registry.hub.docker.com</param>
+    	    <param id="docker_owner_override">payamemami</param>
+    	    <param id="docker_image_override">metfrag-cli-batch</param>
+    	    <param id="docker_tag_override">latest</param>
+    	    <param id="max_pod_retrials">3</param>
+    	    <param id="docker_enabled">true</param>
+	</destination>
 	<destination id="camera-container" runner="k8s">
 	          <param id="docker_repo_override">registry.hub.docker.com</param>
             <param id="docker_owner_override">payamemami</param>
@@ -490,9 +498,11 @@
 	<tool id="XTandemAdapter" destination="container-openms"/> 
 	<!-- MetFrag -->
 	<tool id="metfrag-cli-batch" destination="metfrag-cli-batch-container" />
+<tool id="metfrag-cli-batch-zip" destination="metfrag-cli-batch-container2" />
   <tool id="msnbase-read-msms" destination="msnbase-container" />
   <tool id="map-msms2camera" destination="msnbase-container" />
   <tool id="msms2metfrag" destination="msnbase-container" />
+ <tool id="msms2metfrag-zip" destination="msnbase-container" />
 	<tool id="metfrag-vis" destination="metfrag-vis-container" />
 	<!-- ISA related tools -->
         <tool id="get_study" destination="container-mtblisa"/>

@@ -9,7 +9,11 @@
   <description>Aggregate results from MetFrag</description>
   <command><![CDATA[
 /usr/local/bin/aggregateMetfrag.r 
-inputs=' 
+
+#if "zip" in str($param_in_type):
+  inputs=$infile realNames=$infile.name
+#else
+  inputs=' 
   #for $txt2 in $infile: 
 $txt2,
 #end for
@@ -20,13 +24,19 @@ realNames='
 ${txt.name},
 #end for
 '
+#end if
+
  output=$outfile;
   ]]></command>
   <inputs>
-    <param name="infile" type="data" format="csv" value="" optional="False" multiple="True" label="Input mzML file." />
+    <param name="infile" type="data" format="csv,zip" value="" optional="False" multiple="True" label="Input metfrag results file." />
+   <param name="param_in_type" display="radio" type="select" optional="False" label="Input file type" help="">
+      <option value="csv">mzML</option>
+      <option value="zip">featureXML</option>
+    </param>
   </inputs>
   <outputs>
     <data name="outfile" format="csv"/>
   </outputs>
   <help>Aggregates results from MetFrag.</help>
-</tool>
+</tool>$infiles.name
