@@ -10,9 +10,6 @@
   <command><![CDATA[
 /usr/local/bin/aggregateMetfrag.r 
 
-#if "zip" in str($param_in_type):
-  inputs=$infile realNames=$infile.name
-#else
   inputs=' 
   #for $txt2 in $infile: 
 $txt2,
@@ -24,16 +21,12 @@ realNames='
 ${txt.name},
 #end for
 '
-#end if
+
 
  output=$outfile;
   ]]></command>
   <inputs>
     <param name="infile" type="data" format="csv,zip" value="" optional="False" multiple="True" label="Input metfrag results file." />
-   <param name="param_in_type" display="radio" type="select" optional="False" label="Input file type" help="">
-      <option value="csv">csv</option>
-      <option value="zip">zip</option>
-    </param>
   </inputs>
   <outputs>
     <data name="outfile" format="csv"/>
