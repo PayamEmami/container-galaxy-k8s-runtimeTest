@@ -23,10 +23,14 @@ ${txt.name},
 '
 
 
- output=$outfile;
+ output=$outfile filetype=$param_in_type;
   ]]></command>
   <inputs>
     <param name="infile" type="data" format="csv,zip" value="" optional="False" multiple="True" label="Input metfrag results file." />
+   <param name="param_in_type" type="select" value="" optional="False" label="Output type" help="type of output">
+      <option value="zip" selected="True">zip</option>
+      <option value="csv" selected="False">csv</option>
+    </param>
   </inputs>
   <outputs>
     <data name="outfile" format="csv"/>

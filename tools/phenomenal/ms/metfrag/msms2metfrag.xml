@@ -5,12 +5,16 @@
   <description>Generate MetFrag parameters given MS/MS spectral information and CAMERA adduct annotation.</description>
   <command><![CDATA[
 	mkdir outputfolder;
-	/usr/local/bin/MS2ToMetFrag.r inputCAMERA=$msms2metfrag_input_2 inputMS2=$msms2metfrag_input_1 output=outputfolder precursorppm=$precursorppm fragmentppm=$fragmentppm fragmentabs=$fragmentabs database=$database maxSpectra=$maxSpectra minPeaks=$minPeaks maxPrecursorMass=$maxPrecursorMass minPrecursorMass=$minPrecursorMass mode=$mode adductRules=$adductRules;
+/usr/local/bin/MS2ToMetFrag.r inputCAMERA=$msms2metfrag_input_2 inputMS2=$msms2metfrag_input_1 output=outputfolder precursorppm=$precursorppm fragmentppm=$fragmentppm fragmentabs=$fragmentabs database=$database maxSpectra=$maxSpectra minPeaks=$minPeaks maxPrecursorMass=$maxPrecursorMass minPrecursorMass=$minPrecursorMass mode=$mode adductRules=$adductRules filetype=$param_in_type;
   ]]>
   </command>
   <inputs>
     <param name="msms2metfrag_input_1" type="data" format="rdata" optional="False" label="map-msms2camera data" help="A rdata file mapped MS/MS spectra retrieved from map-msms2camera" />
     <param name="msms2metfrag_input_2" type="data" format="rdata" optional="False" label="camera-find-adducts data" help="A rdata file with a xsAnnotate object from one sample with annotated adduct information" />
+   <param name="param_in_type" type="select" value="" optional="False" label="Output type" help="type of output">
+      <option value="zip" selected="True">zip</option>
+      <option value="txt" selected="False">txt</option>
+    </param>
     <param name="precursorppm" type="text" format="txt" value="10" optional="False" label="Precursor PPM" help="The ppm error for the precursor mass to search candidates" />
     <param name="fragmentppm" type="text" format="txt" value="10" optional="False" label="Fragment PPM (mzppm)" help="The ppm error to assign fragments to fragment peaks" />
     <param name="fragmentabs" type="text" format="txt" value="0.01" optional="False" label="Fragment Abs (mzabs)" help="Absolute mass error to assign fragments to fragment peaks" />
